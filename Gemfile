@@ -3,7 +3,6 @@ ruby '2.2.0'
 gem 'rails', '4.2.0'
 gem 'rails-api'
 gem 'bcrypt'
-gem 'aws-sdk'
 gem 'spring', :group => :development
 gem 'pg'
 gem 'newrelic_rpm'
