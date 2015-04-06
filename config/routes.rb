@@ -9,5 +9,5 @@ Rails.application.routes.draw do
     resources :articles, only: [:index, :create]
   end
   resources :articles, only: [:update ,:destroy]
-
+  get 'amazon/sign_key'
 end
