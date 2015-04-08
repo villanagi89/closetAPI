@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   end
 
   resources :closets, only: [:show, :destroy] do
-    resources :articles, only: [:index, :create]
+    resources :articles, only: [:index]
   end
-  resources :articles, only: [:update ,:destroy]
+  resources :articles, only: [ :create, :update,:destroy]
   get 'amazon/sign_key'
 end
