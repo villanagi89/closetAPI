@@ -1,6 +1,15 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
 
+  def sign_in
+    user = User.find_by(email: params[:email])
+    if user && user.autheticate(params[:password])
+      render json: { token: user.token }
+    else
+      head :unauthorized
+    end
+  end
+
   # GET /users
   # GET /users.json
   def index
@@ -54,6 +63,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:email, :username, :password_digest, :token)
+      params.require(:user).permit(:email, :username, :password, :token)
     end
 end
